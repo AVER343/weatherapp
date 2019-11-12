@@ -11,7 +11,7 @@ weatherForm.addEventListener('submit',(event)=>{
         console.log("Enter a city name")
     }
     else{
-        fetch(`http://localhost:1000/search?address=${location}`).then((response)=>{
+        fetch(`/search?address=${location}`).then((response)=>{
    if(response.status!=200)
    {
         

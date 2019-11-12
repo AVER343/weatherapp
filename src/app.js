@@ -1,10 +1,11 @@
-let weatherAPIData = require('./data/data') 
-let geoData = require('./data/mapbox') 
+let weatherAPIData = require('../data/data') 
+let geoData = require('../data/mapbox') 
 const express = require('express')
 const hbs =require('hbs')
 const path =require('path')
 const app= express()
 let cityName='Delhi'
+const port=process.env.PORT||3000
 //partials
 const partialsPath=path.join(__dirname,'./templates/partials')
 hbs.registerPartials(partialsPath)
@@ -56,4 +57,4 @@ geoData(`${cityName}`,({body})=>
        
         }
     })
-app.listen(1000)
+app.listen(port)
