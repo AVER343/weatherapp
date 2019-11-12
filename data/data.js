@@ -1,6 +1,7 @@
 const request =require('request')
+
 let weatherData=(cityName,callback)=>{
-    if(cityName){
+if(cityName){
         let city=cityName
         let country=`country`
         let units=`metrics`
