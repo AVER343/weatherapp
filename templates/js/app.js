@@ -11,27 +11,17 @@ weatherForm.addEventListener('submit',(event)=>{
         console.log("Enter a city name")
     }
     else{
-        fetch(`/search?address=${location}`).then((response)=>{
-   if(response.status!=200)
-   {
-        
-   }
-   else{
-       response.json().then((data)=>{
-           if(data.error)
-           {
-            consol.log(data.error)
-           }
-           else
-           {
-            document.getElementById("alertinfo").innerHTML = `The weather condition in ${data.city} ,at the moment, is ${data.weather} `;
-            $('#alertinfo').show();
-            
-            
-           }
-       })
-   }
-})
+        fetch(`/weather?address=${location}`).
+        then((response)=>{if(response.status!=200){}
+        else{response.json().then((data)=>
+            {if(data.error)
+            {console.log(data.error)}
+            else
+                {document.getElementById("alertinfo").innerHTML = `The weather condition in ${data.city} ,at the moment, is ${data.weather} `;
+                $('#alertinfo').show();
+                }
+            })
+            }})
 
     }
     })

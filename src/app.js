@@ -7,10 +7,10 @@ const app= express()
 let cityName='Delhi'
 const port=process.env.PORT||3000
 //partials
-const partialsPath=path.join(__dirname,'./templates/partials')
+const partialsPath=path.join(__dirname,'../templates/partials')
 hbs.registerPartials(partialsPath)
 //handlebars
-const viewsPath=path.join(__dirname,`./templates/views`)
+const viewsPath=path.join(__dirname,`../templates/views`)
 app.set('view engine','hbs')
 app.set('views',viewsPath)
 const error='Something went wrong'
@@ -38,7 +38,8 @@ app.get(`/weather/`,(req,res)=>{
 })
 
 //general static
-app.use(express.static(path.join(__dirname,'./templates')))
+
+app.use(express.static(path.join(__dirname,'../templates')))
 app.get('*',(req,res)=>{
         res.render('error',{error:Error})
 })
